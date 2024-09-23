@@ -1,0 +1,325 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #ce0303;
+}
+
+.header{
+    height: 15vh;
+    display: flex;
+    border-bottom: 10px double black;
+    background-color: #f2f2f2;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-text h1{
+    background-image: linear-gradient( 90deg, #810000, #ff0000, #810000 );
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-clip: text;
+    display: inline;
+    font-size: 5rem; 
+    border: 1px solid;
+    color: transparent;
+}
+
+.header-logo{
+    height: 12vmin;
+    width: 12vmin;
+    background-image: url("/images/valor.png");
+    background-size: cover;
+}
+
+.accessories{
+    height: 12vh;
+    background-color: #ce0303;
+    border-bottom: 6px solid black;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.camera-inner{
+    border: 4px solid black;
+    background-image: radial-gradient( white, aquamarine);
+    border-radius: 50%;
+    height: 6vh;
+    width: 6vh;
+}
+.camera-outer{
+    margin:  0 3vh;
+    border: 4px solid black;
+    background-color: rgb(235, 232, 232);
+    border-radius: 50%;
+    height: 8vh;
+    width: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.light{
+    margin-left: 4px;
+    border: 4px solid black;
+    border-radius: 50%;
+    height: 4vh;
+    width: 4vh;
+
+}
+
+.red{
+    background-image: radial-gradient(red, rgb(177, 4, 4));
+}
+
+.yellow{
+    background-image: radial-gradient(yellow, rgb(189, 189, 0));
+}
+
+.green{
+    background-image: radial-gradient(lime, rgb(2, 138, 2));
+}
+
+.dex-main{
+   margin: 2vh 5vh;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 80vh;
+}
+
+.dex-left{
+    border: 4px solid black;
+    border-radius: 5vh;
+    width: 47%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    box-shadow: -12px -12px 20px rgba(0, 0, 0, 0.5) inset, 12px 12px 20px rgba(0, 0, 0, 0.5) inset;
+    background-color: #ad0000;
+
+}
+
+.dex-right{
+    border: 4px solid black;
+    border-radius: 5vh;
+    width: 47%;
+    height: 100%;
+    box-shadow: -12px -12px 20px rgba(0, 0, 0, 0.5) inset, 12px 12px 20px rgba(0, 0, 0, 0.5) inset;
+    background-color: #ad0000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.inputbox{
+    margin-top: 2vh;
+    background-color: rgb(0, 0, 0);
+    border-radius: 2vh;
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    box-shadow: -4px -4px 5px rgba(255, 255, 255, 0.2) inset, 4px 4px 4px rgba(255, 255, 255, 0.2) inset;
+    align-items: center;
+}
+
+#pokemon-type, #number-selector{
+    height: 50%;
+    width: 80%;
+    border-radius: 1vh;
+    text-align: center;
+    font-size: 0.9rem;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    background-color: navy;
+    border: 4px solid gray;
+    color: #ffff54;
+}
+
+input::placeholder {
+    color: #ffff54;
+  }
+
+.left-buttons{
+    margin-top: 15vh;
+    width: 60%;
+}
+
+.right-buttons{
+    margin-top: 15vh;
+}
+
+#go-button{
+    margin-top: 2vh;
+    margin-left: 2vh;
+    height: 18vh;
+    width: 14vh;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border: none;
+    background-color: black;
+    box-shadow: -4px -4px 5px rgba(255, 255, 255, 0.2) inset, 4px 4px 4px rgba(255, 255, 255, 0.2) inset;
+    color: lightgrey;
+    font-size: 4rem;
+}
+
+.specific-searchbox{
+    margin-top: 8vh;
+    height: 40%;
+    width: 80%;
+    background-color: rgb(68, 67, 67);
+    box-shadow: -8px -8px 8px rgba(0, 0, 0, 0.2) inset, 8px 8px 8px rgba(0, 0, 0, 0.2) inset;
+    border: 2px solid black;
+    border-radius: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen{
+    height: 80%;
+    width: 80%;
+    border-radius: 1vh;
+    box-shadow: -4px -4px 2px rgba(255, 255, 255, 0.2) inset, 4px 4px 2px rgba(255, 255, 255, 0.2) inset;
+    border: 2px solid black;
+    background-color: navy;
+}
+
+.screen-text{
+    margin: 2vh 0 3vh 2vh;
+    color: #ffff54;
+    font-size: 1.25rem;
+}
+
+#pokemon-name{
+    background-color: navy;
+    color: #ffff54;
+    border-radius: 5px;
+    text-align: center;
+    height: 3vh;
+    width: 86%;
+    margin-left: 2vh;
+}
+
+#enter-button{
+    background-color: navy;
+    color: #ffff54;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.5rem;
+    height: 5vh;
+    width: 15vh;
+    margin-left: 9vh;
+    margin-top: 3vh;
+}
+
+.top-screen{
+    border: 2px solid black;
+    height: 45%;
+    width: 80%;
+    background-color: rgb(68, 67, 67);
+    box-shadow: -8px -8px 8px rgba(0, 0, 0, 0.2) inset, 8px 8px 8px rgba(0, 0, 0, 0.2) inset;
+    border: 2px solid black;
+    border-radius: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bottom-screen{
+    border: 2px solid black;
+    height: 45%;
+    width: 80%;
+    background-color: rgb(68, 67, 67);
+    box-shadow: -8px -8px 8px rgba(0, 0, 0, 0.2) inset, 8px 8px 8px rgba(0, 0, 0, 0.2) inset;
+    border: 2px solid black;
+    border-radius: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Creates a responsive grid */
+    gap: 10px;
+    padding: 10px;
+    background-color: navy;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.pokemon-card {
+    display:  grid;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    border: 4px solid aquamarine;
+    border-radius: 8px;
+    width: 150px; 
+    padding: 10px;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.pokemon-card-text{
+    font-size: 1rem;
+    color: #333; 
+    margin: 0;
+}
+
+.pokemon-card-image{
+    width: 80px; 
+    height: 80px;
+    object-fit: cover; 
+    margin-bottom: 10px;
+}
+
+.detail{
+    border-radius: 5vh;
+}
+
+.detail-screen{
+    height: 100%;
+    width: 100%;
+    background-image: url("/images/details-background.png");
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.info-box{
+    border-radius: 2vh;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 900;
+}
+
+.detail-text{
+    text-align: center;
+    padding: 2vh
+}
+
+.detail-box{
+    margin: 2vh;
+    height: 100%;
+    width: 50%;
+    display: grid;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.detail-image{
+    height: 80%;
+    width: 100%;
+}
