@@ -61,12 +61,16 @@ function displayPokemonDetails(pokemon) {
     const detailScreen = document.createElement("div")
     detailScreen.classList.add("detail-screen")
 
-    const infoBox = document.createElement("div")
-    infoBox.classList.add("detail-box")
-    infoBox.classList.add("info-box")
+    const infoBoxLeft = document.createElement("div")
+    infoBoxLeft.classList.add("detail-box")
+    infoBoxLeft.classList.add("info-box")
 
     const imageBox = document.createElement("div")
     imageBox.classList.add("detail-box")
+
+    const infoBoxRight = document.createElement("div")
+    infoBoxRight.classList.add("detail-box")
+    infoBoxRight.classList.add("info-box")
 
     const name = document.createElement("div");
     name.classList.add("detail-text")
@@ -88,15 +92,53 @@ function displayPokemonDetails(pokemon) {
     abilities.classList.add("detail-text")
     abilities.innerHTML = "Abilities: " + pokemon.abilities.map((ability) => ability.ability.name).join(", ");
 
-    infoBox.appendChild(name);
-    infoBox.appendChild(height);
-    infoBox.appendChild(weight);
-    infoBox.appendChild(abilities);
+    const type = document.createElement("div");
+    type.classList.add("detail-text")
+    type.innerHTML = "Type: " + pokemon.types.map((type) => type.type.name).join(", ");
+
+    const hp = document.createElement("div");
+    hp.classList.add("detail-text")
+    hp.innerHTML = `Hp: ${pokemon.stats[0].base_stat}`;
+
+    const atk = document.createElement("div");
+    atk.classList.add("detail-text")
+    atk.innerHTML = `Atk: ${pokemon.stats[1].base_stat}`;
+
+    const def = document.createElement("div");
+    def.classList.add("detail-text")
+    def.innerHTML = `Def: ${pokemon.stats[2].base_stat}`;
+
+    const spAtk = document.createElement("div");
+    spAtk.classList.add("detail-text")
+    spAtk.innerHTML = `Sp.Atk: ${pokemon.stats[3].base_stat}`;
+
+    const spDef = document.createElement("div");
+    spDef.classList.add("detail-text")
+    spDef.innerHTML = `Sp.Def: ${pokemon.stats[4].base_stat}`;
+
+    const spd = document.createElement("div");
+    spd.classList.add("detail-text")
+    spd.innerHTML = `Spd: ${pokemon.stats[5].base_stat}`;
+
+    infoBoxLeft.appendChild(name);
+    infoBoxLeft.appendChild(height);
+    infoBoxLeft.appendChild(weight);
+    infoBoxLeft.appendChild(abilities);
+
+    infoBoxRight.appendChild(type);
+    infoBoxRight.appendChild(hp);
+    infoBoxRight.appendChild(atk);
+    infoBoxRight.appendChild(def);
+    infoBoxRight.appendChild(spAtk);
+    infoBoxRight.appendChild(spDef);
+    infoBoxRight.appendChild(spd);
 
     imageBox.appendChild(image);
 
-    detailScreen.appendChild(infoBox);
+    detailScreen.appendChild(infoBoxLeft);
     detailScreen.appendChild(imageBox);
+    detailScreen.appendChild(infoBoxRight);
+
 
     detailsContainer.appendChild(detailScreen);
 
@@ -121,7 +163,7 @@ enterButton.addEventListener("click" , async function(){
     const specificPokemonData = await axios.get(`https://pokeapi.co/api/v2/pokemon/${specificPokemon}`)
     displayPokemonDetails(specificPokemonData.data)
     } catch (error) {
-        console.log("Error fetching specific Pokémon")
-        alert("Pokémon not found. Please check the name and try again.");
+        console.log("Error fetching specific Pokemon")
+        alert("Pokemon not found. Please check the name and try again.");
     }
 })

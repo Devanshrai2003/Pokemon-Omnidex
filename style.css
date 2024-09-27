@@ -299,27 +299,33 @@ input::placeholder {
 }
 
 .info-box{
-    border-radius: 2vh;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: white;
     font-weight: 900;
 }
 
 .detail-text{
     text-align: center;
-    padding: 2vh
+    padding: 4px;
+    width: 75%;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: black;
 }
 
 .detail-box{
-    margin: 2vh;
     height: 100%;
-    width: 50%;
-    display: grid;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
 }
 
 .detail-image{
-    height: 80%;
+    height: 60%;
     width: 100%;
+    border-radius: 50%;
+    background-image: url("images/pokeball.png");
+    background-size: contain;
 }
