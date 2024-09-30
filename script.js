@@ -6,16 +6,43 @@ const numberInput = document.querySelector("#number-selector");
 const listContainer = document.querySelector(".list"); 
 const detailsContainer = document.querySelector(".details");
 
+
+
+function shuffle(array){
+    for(let i = array.length - 1; i > 0; i--){
+        let j = Math.floor(Math.random() * (i + 1))
+
+        let temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
+
+async function getSpecificPokemon() {
+        const specificPokemon = specificNameInput.value.toLowerCase();
+        try{
+        const specificPokemonData = await axios.get(`https://pokeapi.co/api/v2/pokemon/${specificPokemon}`)
+        displayPokemonDetails(specificPokemonData.data)
+        } catch (error) {
+            console.log("Error fetching specific Pokemon")
+            alert("Pokemon not found. Please check the name and try again.");
+        }
+}
+
+
 async function getPokemonByType(pokemonType, pokemonNumber){
     try{
         const pokemonData = await axios.get(`https://pokeapi.co/api/v2/type/${pokemonType.toLowerCase()}`)
-        const pokemonList = pokemonData.data.pokemon.slice(0, pokemonNumber)
-        console.log(pokemonList)
+        const pokemonList = pokemonData.data.pokemon
+        const shuffledList = shuffle(pokemonList);
+        const chosenPokemon = shuffledList.slice(0, pokemonNumber);
 
         listContainer.innerHTML = "";
 
-        for(let i = 0; i < pokemonList.length; i++){
-            const pokemonUnit = pokemonList[i].pokemon
+        for(let i = 0; i < chosenPokemon.length; i++){
+            const pokemonUnit = chosenPokemon[i].pokemon
             const details = await getPokemonDetails(pokemonUnit.url);
 
             const card = document.createElement("div");
@@ -41,8 +68,10 @@ async function getPokemonByType(pokemonType, pokemonNumber){
 
         }
     }catch(error){
-        console.log("Error")
+        console.log("Error", error)
     }
+
+
 
 async function getPokemonDetails(pokemonUrl) {
     try{
@@ -54,6 +83,8 @@ async function getPokemonDetails(pokemonUrl) {
 }
 
 }
+
+
 
 function displayPokemonDetails(pokemon) {
     detailsContainer.innerHTML = "";
@@ -145,6 +176,7 @@ function displayPokemonDetails(pokemon) {
 }
 
 
+
 goButton.addEventListener("click", function(){
     const pokemonType = typeInput.value;
     const pokemonNumber = parseInt(numberInput.value);
@@ -157,13 +189,12 @@ goButton.addEventListener("click", function(){
 
 })
 
-enterButton.addEventListener("click" , async function(){
-    const specificPokemon = specificNameInput.value.toLowerCase();
-    try{
-    const specificPokemonData = await axios.get(`https://pokeapi.co/api/v2/pokemon/${specificPokemon}`)
-    displayPokemonDetails(specificPokemonData.data)
-    } catch (error) {
-        console.log("Error fetching specific Pokemon")
-        alert("Pokemon not found. Please check the name and try again.");
+
+
+enterButton.addEventListener("click" ,() => getSpecificPokemon())
+
+specificNameInput.addEventListener("keydown", async function(event){
+    if(event.key == "Enter"){
+       await getSpecificPokemon()
     }
 })
